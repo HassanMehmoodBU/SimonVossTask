@@ -26,7 +26,13 @@ namespace SimonVossTask.Controllers
 
         public IActionResult Index()
         {
-            //ViewBag.SearchResult = TempData["Message"];
+            //var model_data = TempData["Message"] as ResultViewModel;
+            //if (TempData["Message"] is string s)
+            //{
+            //    var model_data = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultViewModel>(s);
+            //    return View(model_data);
+            //}
+            //var model = TempData["Message"] as List<ResultViewModel>;
             return View();
         }
 
@@ -45,9 +51,12 @@ namespace SimonVossTask.Controllers
                 {
                     var content = await response.Content.ReadAsStringAsync();
                     var result = JsonSerializer.Deserialize<dynamic>(content);
-                    //TempData["Message"] = result.ToString();
-                    //return RedirectToAction("Index", "Home");
+
+                    TempData["Message"] = result.ToString();
+                    return RedirectToAction("Index", "Home");
+
                     return Ok(result);
+
                 }
                 NotFound();
             }

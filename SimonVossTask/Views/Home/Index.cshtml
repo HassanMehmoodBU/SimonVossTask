@@ -11,12 +11,52 @@
 <div class="text-center">
 
 
-    @using (Html.BeginForm("Search", "Home", FormMethod.Post, htmlAttributes: new { name = "search_term" }))
-    {
+    @*@using (Html.BeginForm("Search", "Home", FormMethod.Post, htmlAttributes: new { name = "search_term" }))
+        {
         <input type="text" name="search_term" placeholder="Search here" />
 
         <input type="submit" name="submit" value="Test" />
-    }
+        }*@
+
+    <input type="text" name="search_term" id="search_term" placeholder="Search here" />
+
+    <input type="button" id="sendreqBtn" name="submit" onclick="submitStudent()" value="Search" />
+
+    <br />
+    <br />
+
+    <textarea id="search_result" disabled rows="10" cols="60" style=" overflow-y: scroll">
+
+    </textarea>
+
+
+
+    <script type="text/javascript">
+
+        function submitStudent() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:25699/api/search/'+$('#search_term').val(),
+                contentType: 'json', //
+                crossDomain: true,
+                success: function (result) {
+                    alert('Successfully received Data ');
+                    console.log(result);
+                    var jparse = JSON.parse(result);
+                    for(var i=0; i<jparse.length;i++){
+                        $("#search_result").val($("#search_result").val() + "\n" +"Weight: "+jparse[i].Key+" , Name: "+jparse[i].Value.name);
+                        
+                    }
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            })
+        }
+
+    </script>
+
 
 
 </div>
