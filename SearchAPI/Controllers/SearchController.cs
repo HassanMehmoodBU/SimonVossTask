@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
+using System.IO;
 
 namespace SearchAPI.Controllers
 {
@@ -19,7 +20,7 @@ namespace SearchAPI.Controllers
         }
         [HttpGet("{search_term}")]
         public IActionResult GetResults(string search_term)
-        {
+        {         
             IEnumerable<KeyValuePair<int, JToken>> result = _searchProvider.SearchRecords(search_term);
             var settings = new JsonSerializerSettings { ContractResolver = new DefaultContractResolver { IgnoreSerializableAttribute = false } };
 

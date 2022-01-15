@@ -4,25 +4,25 @@
       "id": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
       "shortCut": "HOFF",
       "name": "Head Office",
-      "description": "Head Office, Feringastraße 4, 85774 Unterföhring"
+      "description": "Head Office, Feringastrasse 4, 85774 Unterfoehring"
     },
     {
       "id": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
       "shortCut": "PROD",
-      "name": "Produktionsstätte",
-      "description": "Produktionsstätte, Lindauer Str. 6, 06721 Osterfeld"
+      "name": "Produktionsstaette",
+      "description": "Produktionsstaette, Lindauer Str. 6, 06721 Osterfeld"
     },
     {
       "id": "3116849e-e18d-4afd-8058-156d8d96b593",
       "shortCut": "LOG-1",
       "name": "Logistikzentrum I",
-      "description": "Logistikzentrum, 81677 München"
+      "description": "Logistikzentrum, 81677 Muenchen"
     },
     {
       "id": "9a168210-ae8b-4cbe-b5f9-aa8b36dd5e70",
       "shortCut": "LOG-2",
       "name": "Logistikzentrum II",
-      "description": "Logistikzentrum, 81335 München"
+      "description": "Logistikzentrum, 81335 Muenchen"
     }
   ],
   "locks": [
@@ -30,7 +30,7 @@
       "id": "0a1e6f38-6076-4da8-8d6c-87356f975baf",
       "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
       "type": "Cylinder",
-      "name": "Gästezimmer 4.OG",
+      "name": "Gaestezimmer 4.OG",
       "description": null,
       "serialNumber": "UID-A89F98F3",
       "floor": "4.OG",
@@ -40,7 +40,7 @@
       "id": "e657a28e-d744-4f62-b5d8-a64123c2400f",
       "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
       "type": "Cylinder",
-      "name": "WC Herren 3.OG süd",
+      "name": "WC Herren 3.OG sued",
       "description": null,
       "serialNumber": "UID-C043133A",
       "floor": "3.OG",
@@ -50,7 +50,7 @@
       "id": "be3d6d9e-3e30-4294-af60-bf24afacbefe",
       "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
       "type": "Cylinder",
-      "name": "WC Damen 3.OG süd",
+      "name": "WC Damen 3.OG sued",
       "description": null,
       "serialNumber": "UID-F40C9966",
       "floor": "3.OG",
@@ -120,7 +120,7 @@
       "id": "0c3d0cd4-a24e-45e9-85dd-80ad7a91ba79",
       "buildingId": "0cccab2b-bc8d-44c5-b248-8a9ca6d7e899",
       "type": "Cylinder",
-      "name": "Besprechungsraum 4.OG groß",
+      "name": "Besprechungsraum 4.OG gross",
       "description": null,
       "serialNumber": "UID-41302C30",
       "floor": "4.OG",
@@ -140,7 +140,7 @@
       "id": "d4f144db-cdb8-4b85-ae9c-e4603aa6482e",
       "buildingId": "9605186f-7eb4-4f40-967e-2885d9a8b3c4",
       "type": "Cylinder",
-      "name": "Besprechungsraum Osterfeld groß",
+      "name": "Besprechungsraum Osterfeld gross",
       "description": null,
       "serialNumber": "UID-21BC2485",
       "floor": null,
@@ -560,7 +560,7 @@
     },
     {
       "id": "20645cff-16ec-4ba2-9089-65595d07c6e4",
-      "name": "Qualitätskontrolle",
+      "name": "Qualitaetskontrolle",
       "description": null
     },
     {

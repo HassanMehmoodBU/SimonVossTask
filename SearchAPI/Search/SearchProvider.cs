@@ -292,7 +292,7 @@ namespace SearchAPI.Search
             #endregion
 
             IEnumerable<KeyValuePair<int, JToken>> result1 = deleteDuplicates(SearchResultsDict).OrderByDescending(i => i.Key);
-            
+
             return result1;
 
         }

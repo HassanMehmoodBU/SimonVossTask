@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  searchapi:
+    image: ${DOCKER_REGISTRY-}searchapi
+    build:
+      context: .
+      dockerfile: SearchAPI/Dockerfile
+
+  simonvosstask:
+    image: ${DOCKER_REGISTRY-}simonvosstask
+    build:
+      context: .
+      dockerfile: SimonVossTask/Dockerfile
+

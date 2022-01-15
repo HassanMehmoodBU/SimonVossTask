@@ -36,16 +36,34 @@
         function submitStudent() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:25699/api/search/'+$('#search_term').val(),
+                url: 'http://localhost:6001/api/search/'+$('#search_term').val(),
                 contentType: 'json', //
                 crossDomain: true,
                 success: function (result) {
-                    alert('Successfully received Data ');
-                    console.log(result);
+                    //alert('Successfully received Data ');
+                    //console.log(result);
                     var jparse = JSON.parse(result);
-                    for(var i=0; i<jparse.length;i++){
-                        $("#search_result").val($("#search_result").val() + "\n" +"Weight: "+jparse[i].Key+" , Name: "+jparse[i].Value.name);
-                        
+                    $("#search_result").val("");
+                    if (result == "[]"){
+                        $("#search_result").val("Not Found!");
+                    }else{
+                        for(var i=0; i<jparse.length;i++){
+
+                            if(i==0){
+                                $("#search_result").val("Total Records Found : "+jparse.length);
+                            }
+
+                            $("#search_result").val($("#search_result").val() + "\n" +"Weight: "+jparse[i].Key);
+                            if(jparse[i].Value.name != null){
+                                $("#search_result").val($("#search_result").val()+" , Value: "+jparse[i].Value.name);
+                            }
+                            else if(jparse[i].Value.owner != null){
+                                $("#search_result").val($("#search_result").val()+" , Value: "+jparse[i].Value.owner);
+                            }
+
+
+
+                        }
                     }
                 },
                 error: function () {
