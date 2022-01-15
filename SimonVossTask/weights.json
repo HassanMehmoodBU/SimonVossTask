@@ -1,0 +1,36 @@
+{
+
+  "Building": {
+    "id": "UUID",
+    "shortCut": 7,
+    "name": 9,
+    "description": 5
+  },
+  "Lock": {
+    "id": "UUID",
+    "BuildingName": 8,
+    "BuildingShortCut": 5,
+    "BuildingDescription": 0,
+    "type": 3,
+    "name": 10,
+    "serialNumber": 8,
+    "floor": 6,
+    "roomNumber": 6,
+    "description": 6
+  },
+  "Group": {
+    "id": "UUID",
+    "name": 9,
+    "description": 5
+  },
+  "Medium": {
+    "id": "UUID",
+    "groupId": "UUID",
+    "groupName": 8,
+    "groupDescription": 0,
+    "type": 3,
+    "owner": 10,
+    "serialNumber": 8,
+    "description": 6
+  }
+}

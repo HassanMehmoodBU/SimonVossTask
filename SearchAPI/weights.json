@@ -1,0 +1,36 @@
+{
+
+  "Weights": {
+    "Building.Id": "UUID",
+    "Building.ShortCut": 7,
+    "Building.Name": 9,
+    "Building.Description": 5,
+
+    //"Lock": {
+    "Lock.Id": "UUID",
+    "Lock.BuildingName": 8,
+    "Lock.BuildingShortCut": 5,
+    "Lock.BuildingDescription": 0,
+    "Lock.Type": 3,
+    "Lock.Name": 10,
+    "Lock.SerialNumber": 8,
+    "Lock.Floor": 6,
+    "Lock.RoomNumber": 6,
+    "Lock.Description": 6,
+
+    //"Group": {
+    "Group.Id": "UUID",
+    "Group.Name": 9,
+    "Group.Description": 5,
+
+    //"Medium": {
+    "Media.Id": "UUID",
+    "Media.GroupId": "UUID",
+    "Media.GroupName": 8,
+    "Media.GroupDescription": 0,
+    "Media.Type": 3,
+    "Media.Owner": 10,
+    "Media.SerialNumber": 8,
+    "Media.Description": 6
+  }
+}

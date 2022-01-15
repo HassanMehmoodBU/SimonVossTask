@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post, htmlAttributes: new { name = "search_term" }))
+    {
+        <input type="text" name="search_term" placeholder="Search here" />
+
+        <input type="submit" name="submit" value="Test" />
+    }
+
+
+</div>
