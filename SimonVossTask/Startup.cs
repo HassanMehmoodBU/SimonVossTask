@@ -50,6 +50,7 @@ namespace SimonVossTask
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

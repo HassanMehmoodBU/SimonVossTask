@@ -26,6 +26,7 @@ namespace SimonVossTask.Controllers
 
         public IActionResult Index()
         {
+            //ViewBag.SearchResult = TempData["Message"];
             return View();
         }
 
@@ -42,10 +43,11 @@ namespace SimonVossTask.Controllers
                 var response = await client.GetAsync($"api/search/{values["search_term"]}");
                 if (response.IsSuccessStatusCode)
                 {
-                    var content = await response.Content.ReadAsByteArrayAsync();
-                    var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-                    var result = JsonSerializer.Deserialize<dynamic>(content, options);
-                    return Json(result);
+                    var content = await response.Content.ReadAsStringAsync();
+                    var result = JsonSerializer.Deserialize<dynamic>(content);
+                    //TempData["Message"] = result.ToString();
+                    //return RedirectToAction("Index", "Home");
+                    return Ok(result);
                 }
                 NotFound();
             }

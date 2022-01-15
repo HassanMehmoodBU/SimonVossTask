@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using SearchAPI.Search;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace SearchAPI.Controllers
 {
@@ -16,11 +18,15 @@ namespace SearchAPI.Controllers
             this._searchProvider = new SearchProvider();
         }
         [HttpGet("{search_term}")]
-        public async Task<IActionResult> GetResults(string search_term)
+        public IActionResult GetResults(string search_term)
         {
-            SortedDictionary<int, JToken> keyValuePairs = _searchProvider.SearchRecords(search_term);
+            IEnumerable<KeyValuePair<int, JToken>> result = _searchProvider.SearchRecords(search_term);
+            var settings = new JsonSerializerSettings { ContractResolver = new DefaultContractResolver { IgnoreSerializableAttribute = false } };
 
-            return Ok(keyValuePairs);
+            var obj1 = JsonConvert.SerializeObject(result,settings);
+            
+
+            return Ok(obj1);
         }
     }
 }
