@@ -55,8 +55,6 @@ namespace SimonVossTask.Controllers
                     TempData["Message"] = result.ToString();
                     return RedirectToAction("Index", "Home");
 
-                    return Ok(result);
-
                 }
                 NotFound();
             }

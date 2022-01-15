@@ -36,7 +36,7 @@
         function submitStudent() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:6001/api/search/'+$('#search_term').val(),
+                url: 'http://localhost:25699/api/search/'+$('#search_term').val(),
                 contentType: 'json', //
                 crossDomain: true,
                 success: function (result) {
