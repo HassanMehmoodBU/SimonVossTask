@@ -26,13 +26,6 @@ namespace SimonVossTask.Controllers
 
         public IActionResult Index()
         {
-            //var model_data = TempData["Message"] as ResultViewModel;
-            //if (TempData["Message"] is string s)
-            //{
-            //    var model_data = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultViewModel>(s);
-            //    return View(model_data);
-            //}
-            //var model = TempData["Message"] as List<ResultViewModel>;
             return View();
         }
 

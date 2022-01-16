@@ -106,6 +106,18 @@ namespace SearchAPI.Search
                                 SearchResultsDict.Add(new KeyValuePair<int, JToken>(WeightProvider(weights, "Lock.BuildingShortCutkk"), _lock));
                             }
                         }
+
+                        if (building["description"].ToString().IndexOf(search_term, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                        {
+                            if (exactMatch(building["description"].ToString(), search_term))
+                            {
+                                SearchResultsDict.Add(new KeyValuePair<int, JToken>((WeightProvider(weights, "Lock.BuildingDescription") + 10), _lock));
+                            }
+                            else
+                            {
+                                SearchResultsDict.Add(new KeyValuePair<int, JToken>(WeightProvider(weights, "Lock.BuildingDescription"), _lock));
+                            }
+                        }
                     }
                 }
 
@@ -180,10 +192,6 @@ namespace SearchAPI.Search
 
             foreach (var group in groups)
             {
-                //if (group["id"].ToString().IndexOf(search_term, StringComparison.CurrentCultureIgnoreCase) >= 0)
-                //{
-                //    SearchResultsDict.Add(WeightProvider(weights, "Group.Id"), group);
-                //}
                 if (group["name"].ToString().IndexOf(search_term, StringComparison.CurrentCultureIgnoreCase) >= 0)
                 {
                     if (exactMatch(group["name"].ToString(), search_term))
@@ -318,26 +326,52 @@ namespace SearchAPI.Search
 
         public List<KeyValuePair<int, JToken>> deleteDuplicates(List<KeyValuePair<int, JToken>> _list)
         {
-            var ret = _list;
-
+            List<KeyValuePair<int, JToken>> ret = new List<KeyValuePair<int, JToken>>();
+            bool found;
             for (int i = 0; i < _list.Count; i++)
             {
-                for (int j = i + 1; j < _list.Count - 1; j++)
+                found = false;
+                for (int j = i; j < _list.Count - 1;)
                 {
-                    if (_list[i].Value["id"].ToString().Equals(_list[j].Value["id"].ToString()))
+                    j++;
+                    if (_list.Count > j)
                     {
-                        if (_list[i].Key > _list[j].Key)
+                        if (_list[i].Value["id"].ToString().Equals(_list[j].Value["id"].ToString()))
                         {
-                            ret.Remove(_list[j]);
+                            found = true;
+
+                            var tofind = _list[i].Value;
+                            KeyValuePair<int, JToken> x = ret.SingleOrDefault(x => x.Value == tofind);
+                            if (x.Key != 0)
+                            {
+                                KeyValuePair<int, JToken> pairToAdd = new KeyValuePair<int, JToken>(_list[j].Key + x.Key, _list[j].Value);
+                                ret.Add(pairToAdd);
+                                ret.Remove(x);
+                                _list.RemoveAt(j);
+                                j--;
+                            }
+                            else
+                            {
+                                KeyValuePair<int, JToken> pairToAdd = new KeyValuePair<int, JToken>(_list[i].Key + _list[j].Key, _list[i].Value);
+                                ret.Add(pairToAdd);
+                                _list.RemoveAt(j);
+                                j--;
+                            }
                         }
-                        else
-                        {
-                            ret.Remove(_list[i]);
-                        }
+
                     }
+
+                }
+                if (!found)
+                {
+                    ret.Add(_list[i]);
                 }
             }
 
+            foreach (var item in ret)
+            {
+
+            }
 
             return ret;
         }
